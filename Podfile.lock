@@ -1,0 +1,16 @@
+PODS:
+  - WaterfallGrid (0.3.2)
+
+DEPENDENCIES:
+  - WaterfallGrid (~> 0.3.0)
+
+SPEC REPOS:
+  trunk:
+    - WaterfallGrid
+
+SPEC CHECKSUMS:
+  WaterfallGrid: 52452469ac5192d0d1f30b5187e3ce590270835b
+
+PODFILE CHECKSUM: b08f125b916644559cff6cf25e23a706e56d09a2
+
+COCOAPODS: 1.11.3

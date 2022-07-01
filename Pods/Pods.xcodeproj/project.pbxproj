@@ -1,0 +1,628 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2B38A272FB7D66BAFC6D1E7745307E7C /* WaterfallGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69157B26FAC9EC95400E8C7B9AE3C738 /* WaterfallGrid.swift */; };
+		331B279C88DEFC783971B2B74199E7CA /* WaterfallGrid-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5832031409FCB5BC6EEABBEBAB79FE38 /* WaterfallGrid-dummy.m */; };
+		3CB8B4F67900E8E7D52BB52DB05DB255 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20094AF9A05B5AFEE065EFE5403128D1 /* SwiftUI.framework */; };
+		460DA806AE05936573FD0138DEDDC985 /* WaterfallGrid-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A44417F46277CC94F9D08D2415F683F5 /* WaterfallGrid-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6071F86D122802D5845A949BD3BBF32D /* PositiveNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58B24A535CBF2253470A0E2D85B1BD7 /* PositiveNumber.swift */; };
+		7D95A5B507D17B9B76E392E86EA1A819 /* Pods-Trivia-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C9B4FA0ACBF17DBF52138D06F683A9A /* Pods-Trivia-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8627958BDDFABD4B9CE9FF976372656C /* Pods-Trivia-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F835D799DCA7BA30493B08BCFEB791D3 /* Pods-Trivia-dummy.m */; };
+		8644B4EF599057D8F9B13969F5B4FA7F /* GridSyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE2D89FC17171A7E35DC194F568F36C /* GridSyle.swift */; };
+		A1A259329317EED1CEA1A46EE3E09A08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7C7CBF4366B196F4F8B133C8319AB1 /* Foundation.framework */; };
+		C42F683BF4B6A2272F63A1C559DE9424 /* PreferenceSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFB376EFD435891BDE0D92A18C8AF20 /* PreferenceSetter.swift */; };
+		C560B0C3BA9FE39AF3A65332F5D830D2 /* ElementPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B754103619F8D8E241ECBE6F0EB6F2 /* ElementPreference.swift */; };
+		CD42FB07F1D46844611DEE06B6FE9FC0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7C7CBF4366B196F4F8B133C8319AB1 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A4F16A9BBCBBE0BB7E8807B824236B42 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16DB0A490A61C833A70BDE2217E0D5FD;
+			remoteInfo = WaterfallGrid;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0C9B4FA0ACBF17DBF52138D06F683A9A /* Pods-Trivia-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Trivia-umbrella.h"; sourceTree = "<group>"; };
+		20094AF9A05B5AFEE065EFE5403128D1 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/SwiftUI.framework; sourceTree = DEVELOPER_DIR; };
+		25DBC82980103510DAAF0E1363E73277 /* Pods-Trivia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Trivia.release.xcconfig"; sourceTree = "<group>"; };
+		403B548FE27E90BA008126CCB0EEA6CA /* WaterfallGrid.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WaterfallGrid.debug.xcconfig; sourceTree = "<group>"; };
+		4D10114C6DC0F52D516D7452220BB169 /* Pods-Trivia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Trivia.debug.xcconfig"; sourceTree = "<group>"; };
+		53DEFF404F18BFCCE75294533FCB55D9 /* Pods-Trivia */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Trivia"; path = Pods_Trivia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5832031409FCB5BC6EEABBEBAB79FE38 /* WaterfallGrid-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WaterfallGrid-dummy.m"; sourceTree = "<group>"; };
+		5B29A04C12D7E463D5B1DA48D921633E /* Pods-Trivia.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Trivia.modulemap"; sourceTree = "<group>"; };
+		66C7978F391BAFB9AB39B01D5BBB00C0 /* Pods-Trivia-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Trivia-frameworks.sh"; sourceTree = "<group>"; };
+		69157B26FAC9EC95400E8C7B9AE3C738 /* WaterfallGrid.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WaterfallGrid.swift; path = Sources/WaterfallGrid/WaterfallGrid.swift; sourceTree = "<group>"; };
+		6A1C1DB0717051BEA082D92A51007EBE /* Pods-Trivia-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Trivia-acknowledgements.plist"; sourceTree = "<group>"; };
+		79AC1C8C97CE9FE9DC3EDB90F2039EF6 /* WaterfallGrid-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "WaterfallGrid-Info.plist"; sourceTree = "<group>"; };
+		7EE2D89FC17171A7E35DC194F568F36C /* GridSyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GridSyle.swift; path = Sources/WaterfallGrid/GridSyle.swift; sourceTree = "<group>"; };
+		973C1905CD5EA69472234E1B2F2031C9 /* Pods-Trivia-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Trivia-acknowledgements.markdown"; sourceTree = "<group>"; };
+		99AE7DBF5A03B1ABFD39B3EE0A743521 /* Pods-Trivia-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Trivia-Info.plist"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A44417F46277CC94F9D08D2415F683F5 /* WaterfallGrid-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WaterfallGrid-umbrella.h"; sourceTree = "<group>"; };
+		A58B24A535CBF2253470A0E2D85B1BD7 /* PositiveNumber.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PositiveNumber.swift; path = Sources/WaterfallGrid/PositiveNumber.swift; sourceTree = "<group>"; };
+		A5B754103619F8D8E241ECBE6F0EB6F2 /* ElementPreference.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ElementPreference.swift; path = Sources/WaterfallGrid/ElementPreference.swift; sourceTree = "<group>"; };
+		B0E85165CC52D6D0E4AF3789AAA2F36B /* WaterfallGrid.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = WaterfallGrid.modulemap; sourceTree = "<group>"; };
+		BBFB376EFD435891BDE0D92A18C8AF20 /* PreferenceSetter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PreferenceSetter.swift; path = Sources/WaterfallGrid/PreferenceSetter.swift; sourceTree = "<group>"; };
+		DC7C7CBF4366B196F4F8B133C8319AB1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		DCCC85AE2DA579E717694B2B9F16D0B9 /* WaterfallGrid.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WaterfallGrid.release.xcconfig; sourceTree = "<group>"; };
+		E3A0609525C5B681751F703B88451CB1 /* WaterfallGrid */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = WaterfallGrid; path = WaterfallGrid.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F30EB516AB9C6147C220906A105B1E1C /* WaterfallGrid-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WaterfallGrid-prefix.pch"; sourceTree = "<group>"; };
+		F835D799DCA7BA30493B08BCFEB791D3 /* Pods-Trivia-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Trivia-dummy.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8056B407A02D383ACDE6DFF84FB27691 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1A259329317EED1CEA1A46EE3E09A08 /* Foundation.framework in Frameworks */,
+				3CB8B4F67900E8E7D52BB52DB05DB255 /* SwiftUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C65E83B3EE7F09A7DE2D8164EA6F3FDB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD42FB07F1D46844611DEE06B6FE9FC0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				367350C0206CEB39C83981ABCAA29148 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		367350C0206CEB39C83981ABCAA29148 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				DC7C7CBF4366B196F4F8B133C8319AB1 /* Foundation.framework */,
+				20094AF9A05B5AFEE065EFE5403128D1 /* SwiftUI.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		568D30C5009AEE532516DB2746092431 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				53DEFF404F18BFCCE75294533FCB55D9 /* Pods-Trivia */,
+				E3A0609525C5B681751F703B88451CB1 /* WaterfallGrid */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		88D669065AF4A8257FDB6C6F53443469 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AFD3250C7F369D76882CF4C7FC8FD3AB /* WaterfallGrid */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AFD3250C7F369D76882CF4C7FC8FD3AB /* WaterfallGrid */ = {
+			isa = PBXGroup;
+			children = (
+				A5B754103619F8D8E241ECBE6F0EB6F2 /* ElementPreference.swift */,
+				7EE2D89FC17171A7E35DC194F568F36C /* GridSyle.swift */,
+				A58B24A535CBF2253470A0E2D85B1BD7 /* PositiveNumber.swift */,
+				BBFB376EFD435891BDE0D92A18C8AF20 /* PreferenceSetter.swift */,
+				69157B26FAC9EC95400E8C7B9AE3C738 /* WaterfallGrid.swift */,
+				EDD1F2408CCFE23B278FA7FEFD9ECA24 /* Support Files */,
+			);
+			name = WaterfallGrid;
+			path = WaterfallGrid;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
+				88D669065AF4A8257FDB6C6F53443469 /* Pods */,
+				568D30C5009AEE532516DB2746092431 /* Products */,
+				F69DF2BC80038295ECE7F44E1784B6CA /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		E5290191FBF29588600D0394527DB36C /* Pods-Trivia */ = {
+			isa = PBXGroup;
+			children = (
+				5B29A04C12D7E463D5B1DA48D921633E /* Pods-Trivia.modulemap */,
+				973C1905CD5EA69472234E1B2F2031C9 /* Pods-Trivia-acknowledgements.markdown */,
+				6A1C1DB0717051BEA082D92A51007EBE /* Pods-Trivia-acknowledgements.plist */,
+				F835D799DCA7BA30493B08BCFEB791D3 /* Pods-Trivia-dummy.m */,
+				66C7978F391BAFB9AB39B01D5BBB00C0 /* Pods-Trivia-frameworks.sh */,
+				99AE7DBF5A03B1ABFD39B3EE0A743521 /* Pods-Trivia-Info.plist */,
+				0C9B4FA0ACBF17DBF52138D06F683A9A /* Pods-Trivia-umbrella.h */,
+				4D10114C6DC0F52D516D7452220BB169 /* Pods-Trivia.debug.xcconfig */,
+				25DBC82980103510DAAF0E1363E73277 /* Pods-Trivia.release.xcconfig */,
+			);
+			name = "Pods-Trivia";
+			path = "Target Support Files/Pods-Trivia";
+			sourceTree = "<group>";
+		};
+		EDD1F2408CCFE23B278FA7FEFD9ECA24 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B0E85165CC52D6D0E4AF3789AAA2F36B /* WaterfallGrid.modulemap */,
+				5832031409FCB5BC6EEABBEBAB79FE38 /* WaterfallGrid-dummy.m */,
+				79AC1C8C97CE9FE9DC3EDB90F2039EF6 /* WaterfallGrid-Info.plist */,
+				F30EB516AB9C6147C220906A105B1E1C /* WaterfallGrid-prefix.pch */,
+				A44417F46277CC94F9D08D2415F683F5 /* WaterfallGrid-umbrella.h */,
+				403B548FE27E90BA008126CCB0EEA6CA /* WaterfallGrid.debug.xcconfig */,
+				DCCC85AE2DA579E717694B2B9F16D0B9 /* WaterfallGrid.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/WaterfallGrid";
+			sourceTree = "<group>";
+		};
+		F69DF2BC80038295ECE7F44E1784B6CA /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E5290191FBF29588600D0394527DB36C /* Pods-Trivia */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		B295F1D7AEA0A13DEFF7DFC627636EEE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				460DA806AE05936573FD0138DEDDC985 /* WaterfallGrid-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDB357381B3E38EE6CE6C736621EDE96 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D95A5B507D17B9B76E392E86EA1A819 /* Pods-Trivia-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		16DB0A490A61C833A70BDE2217E0D5FD /* WaterfallGrid */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 587F27012ED5A4BE4E0DD09AF27B753A /* Build configuration list for PBXNativeTarget "WaterfallGrid" */;
+			buildPhases = (
+				B295F1D7AEA0A13DEFF7DFC627636EEE /* Headers */,
+				605446C364D9C4DB1D6C9B661558744A /* Sources */,
+				8056B407A02D383ACDE6DFF84FB27691 /* Frameworks */,
+				040910C703265C8D44C7A660E4E13407 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WaterfallGrid;
+			productName = WaterfallGrid;
+			productReference = E3A0609525C5B681751F703B88451CB1 /* WaterfallGrid */;
+			productType = "com.apple.product-type.framework";
+		};
+		676F3B8C2266E2D6BA2E1B68469CA994 /* Pods-Trivia */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE9242C44A4C570FEEA18E487F84E8FB /* Build configuration list for PBXNativeTarget "Pods-Trivia" */;
+			buildPhases = (
+				EDB357381B3E38EE6CE6C736621EDE96 /* Headers */,
+				1F1012FB11239DAB198C34784CA9722A /* Sources */,
+				C65E83B3EE7F09A7DE2D8164EA6F3FDB /* Frameworks */,
+				F96538301EDB0B3FFC37DBCDA3BC2ECA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C69BDC7E5404FB516950BC289563D894 /* PBXTargetDependency */,
+			);
+			name = "Pods-Trivia";
+			productName = Pods_Trivia;
+			productReference = 53DEFF404F18BFCCE75294533FCB55D9 /* Pods-Trivia */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 568D30C5009AEE532516DB2746092431 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				676F3B8C2266E2D6BA2E1B68469CA994 /* Pods-Trivia */,
+				16DB0A490A61C833A70BDE2217E0D5FD /* WaterfallGrid */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		040910C703265C8D44C7A660E4E13407 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F96538301EDB0B3FFC37DBCDA3BC2ECA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1F1012FB11239DAB198C34784CA9722A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8627958BDDFABD4B9CE9FF976372656C /* Pods-Trivia-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		605446C364D9C4DB1D6C9B661558744A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C560B0C3BA9FE39AF3A65332F5D830D2 /* ElementPreference.swift in Sources */,
+				8644B4EF599057D8F9B13969F5B4FA7F /* GridSyle.swift in Sources */,
+				6071F86D122802D5845A949BD3BBF32D /* PositiveNumber.swift in Sources */,
+				C42F683BF4B6A2272F63A1C559DE9424 /* PreferenceSetter.swift in Sources */,
+				2B38A272FB7D66BAFC6D1E7745307E7C /* WaterfallGrid.swift in Sources */,
+				331B279C88DEFC783971B2B74199E7CA /* WaterfallGrid-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C69BDC7E5404FB516950BC289563D894 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = WaterfallGrid;
+			target = 16DB0A490A61C833A70BDE2217E0D5FD /* WaterfallGrid */;
+			targetProxy = A4F16A9BBCBBE0BB7E8807B824236B42 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		09909ECBA13E8F70A928465E7F7A9A92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		0EF3539E40B3754D421188E6E72FBFF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCCC85AE2DA579E717694B2B9F16D0B9 /* WaterfallGrid.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/WaterfallGrid/WaterfallGrid-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/WaterfallGrid/WaterfallGrid-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/WaterfallGrid/WaterfallGrid.modulemap";
+				PRODUCT_MODULE_NAME = WaterfallGrid;
+				PRODUCT_NAME = WaterfallGrid;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2DE0D8898245310716431F92FA4989FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		3B005B2FAB892A3191C94360775A54B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 403B548FE27E90BA008126CCB0EEA6CA /* WaterfallGrid.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/WaterfallGrid/WaterfallGrid-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/WaterfallGrid/WaterfallGrid-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/WaterfallGrid/WaterfallGrid.modulemap";
+				PRODUCT_MODULE_NAME = WaterfallGrid;
+				PRODUCT_NAME = WaterfallGrid;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B018F756C46D28DDD9344FBC309FB02C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25DBC82980103510DAAF0E1363E73277 /* Pods-Trivia.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Trivia/Pods-Trivia-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Trivia/Pods-Trivia.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E223F6C104547167D44CDB2D5F6AE8E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D10114C6DC0F52D516D7452220BB169 /* Pods-Trivia.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Trivia/Pods-Trivia-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Trivia/Pods-Trivia.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09909ECBA13E8F70A928465E7F7A9A92 /* Debug */,
+				2DE0D8898245310716431F92FA4989FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		587F27012ED5A4BE4E0DD09AF27B753A /* Build configuration list for PBXNativeTarget "WaterfallGrid" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B005B2FAB892A3191C94360775A54B9 /* Debug */,
+				0EF3539E40B3754D421188E6E72FBFF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE9242C44A4C570FEEA18E487F84E8FB /* Build configuration list for PBXNativeTarget "Pods-Trivia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E223F6C104547167D44CDB2D5F6AE8E8 /* Debug */,
+				B018F756C46D28DDD9344FBC309FB02C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
