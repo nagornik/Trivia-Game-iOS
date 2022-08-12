@@ -10,67 +10,88 @@ import SwiftUI
 struct TriviaView: View {
     
     @EnvironmentObject var triviaManager: TriviaManager
-    @Environment(\.dismiss) var dismiss
     @State var changeDifficulty = false
-    
-    
+    @State var resultsText = ""
+    @State var score = 0
     
     var body: some View {
         
             VStack (spacing: 20) {
-                Text("Trivia Game")
+                Text(resultsText)
                     .lilacTitle()
-                Text("Congratulations, you completed the game!🤓")
-                Text("You scored \(triviaManager.score) out of \(triviaManager.length)")
-                Text(triviaManager.finalText)
+                Text("Congratulations! You completed the game!🤓")
+                Text("Your score is:")
+                    .font(.system(size: 18))
+                Text("\(score) out of \(triviaManager.length)")
+                    .font(.system(size: 20))
+                    .lilacTitle()
 
                 Button {
-                    Task.init {
-                        await triviaManager.fetchTrivia()
+                    let impactMed = UIImpactFeedbackGenerator(style: .soft)
+                    impactMed.impactOccurred()
+                    triviaManager.fetchTrivia()
+//                    Task.init {
+//                        await triviaManager.fetchTrivia()
+//                    }
+                    triviaManager.openCategories = true
+                    withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
+                        triviaManager.currentView = .start
                     }
-                    triviaManager.currentContentSelected = nil
                 } label: {
-                    PrimaryButton(text: "Change category")
+                    PrimaryButton(text: "Change category", padding: 10)
                 }
                 
                 Button {
+                    let impactMed = UIImpactFeedbackGenerator(style: .soft)
+                    impactMed.impactOccurred()
                     withAnimation {
                         changeDifficulty.toggle()
                     }
                 } label: {
-                    PrimaryButton(text: "Change difficulty")
+                    PrimaryButton(text: "Change Difficulty", padding: 10)
                 }
                 
                 if changeDifficulty {
                     HStack {
                         ForEach(Difficulties.allCases, id:\.self) { dif in
                             DiffButton(isItDifficulty: true, text: dif.rawValue)
+                                .padding(.vertical, 2)
                                 .onTapGesture {
+                                    let impactMed = UIImpactFeedbackGenerator(style: .soft)
+                                    impactMed.impactOccurred()
                                     triviaManager.selectedDifficulty = dif
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                        withAnimation {
+                                            changeDifficulty.toggle()
+                                        }
+                                    }
                                 }
                         }
                     }
-//                    .transition(.move(edge: .leading)).animation(.spring(), value: changeDifficulty)
                     .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing)).combined(with: .opacity)).animation(.spring(), value: changeDifficulty)
                 }
                     
                 
                 Button {
-                    Task.init {
-                        await triviaManager.fetchTrivia()
+                    let impactMed = UIImpactFeedbackGenerator(style: .soft)
+                    impactMed.impactOccurred()
+                    withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
+                        triviaManager.currentView = .game
                     }
-                    dismiss()
                 } label: {
                     PrimaryButton(text: "Play again")
                 }
-//                .transition(.move(edge: .top)).animation(.spring(), value: changeDifficulty)
                 
                 
             }
             .onAppear(perform: {
-                triviaManager.assignFinalText()
+                resultsText = triviaManager.checkResults()
+                score = triviaManager.score
+                triviaManager.fetchTrivia()
+//                Task.init {
+//                    await triviaManager.fetchTrivia()
+//                }
             })
-            .navigationBarHidden(true)
             .foregroundColor(Color("text"))
             .padding()
             .frame(maxWidth: .infinity, maxHeight: .infinity)

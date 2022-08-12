@@ -11,7 +11,7 @@ import SwiftUI
 struct TriviaApp: App {
     var body: some Scene {
         WindowGroup {
-            StartView()
+            MainView()
                 .environmentObject(TriviaManager())
         }
     }

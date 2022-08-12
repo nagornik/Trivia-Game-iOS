@@ -14,10 +14,37 @@ enum AppViews {
     case finish
 }
 
+enum Difficulties: String, CaseIterable {
+    case any = "Any"
+    case easy = "Easy"
+    case medium = "Medium"
+    case hard = "Hard"
+}
+
+extension String {
+    func deletingPrefix(_ prefix: String) -> String {
+        guard self.hasPrefix(prefix) else { return self }
+        return String(self.dropFirst(prefix.count))
+    }
+}
+
+func haptic(type: UINotificationFeedbackGenerator.FeedbackType) {
+    UINotificationFeedbackGenerator()
+        .notificationOccurred(type)
+}
+
+func impact(type: UIImpactFeedbackGenerator.FeedbackStyle) {
+    UIImpactFeedbackGenerator(style: type)
+        .impactOccurred()
+}
+
 class TriviaManager: ObservableObject {
     
-    @Published var currentView: AppViews = .start
     
+    @Published var noInternet = false
+    @Published var currentView: AppViews = .start
+    @Published var openCategories = false
+    @Published var stopFetching = false
     private(set) var trivia: [Trivia.Result] = []
     @Published var categories: [Category] = []
     @Published private(set) var length = 0
@@ -40,41 +67,16 @@ class TriviaManager: ObservableObject {
             return "https://opentdb.com/api.php?amount=10&category=\(selectedCategory.id)&difficulty=\(selectedDifficulty.rawValue.lowercased())"
         }
     }
-    
-//    enum Difficulties: String {
-//        case any = "Any"
-//        case easy = "Easy"
-//        case medium = "Medium"
-//        case hard = "Hard"
-//    }
-    
-    
+
     init() {
-        
         categories = TriviaManager.getCategories()
-        
-//        Task.init {
-//            await fetchCategories()
-//        }
     }
-    
-//    func nextDifficulty() {
-//        if selectedDifficulty == .any {
-//            selectedDifficulty = .easy
-//        } else if selectedDifficulty == .easy {
-//            selectedDifficulty = .medium
-//        } else if selectedDifficulty == .medium {
-//            selectedDifficulty = .hard
-//        } else if selectedDifficulty == .hard {
-//            selectedDifficulty = .any
-//        }
-//    }
     
     func checkResults() -> String {
         let score = Double(score) / Double(length)
-        if score <= 0.1 {
+        if score <= 0.2 {
             return "You're dumb!"
-        } else if score > 0.1 && score <= 0.5 {
+        } else if score > 0.2 && score <= 0.5 {
             return "You did well!"
         } else {
             return "Great result!"
@@ -87,54 +89,86 @@ class TriviaManager: ObservableObject {
     
     static func getCategories() -> [Category] {
 
-        // Parse local json file
-
-        // Get a url path to the json file
         let pathString = Bundle.main.path(forResource: "Categories", ofType: "json")
 
-        // Check if pathString is not nil, otherwise...
         guard pathString != nil else {
             return [Category]()
         }
 
-        // Create a url object
         let url = URL(fileURLWithPath: pathString!)
 
         do {
-            // Create a data object
+            
             let data = try Data(contentsOf: url)
 
-            // Decode the data with a JSON decoder
             let decoder = JSONDecoder()
 
             do {
-
                 let quoteData = try decoder.decode([Category].self, from: data)
-
-//                 Add the unique IDs
-//                for r in quoteData {
-//                    r.id = UUID()
-//                }
-
-                // Return the recipes
                 return quoteData
+            } catch {
+                print(error.localizedDescription)
             }
-            catch {
-                // error with parsing json
-                print(error)
-            }
-        }
-        catch {
-            // error with getting data
-            print(error)
+        } catch {
+            print(error.localizedDescription)
         }
 
         return [Category]()
     }
     
+    func fetchTrivia() {
+        DispatchQueue.main.async {
+            self.index = 0
+            self.score = 0
+            self.progress = 0.0
+            self.reachEnd = false
+            self.length = self.trivia.count
+            self.noInternet = true
+        }
+        guard let url = URL(string: ApiUrl) else {
+            print("Missing URL")
+            return
+        }
+        
+        URLSession.shared.dataTask(with: URLRequest(url: url)) { data, responce, error in
+            guard error == nil && data != nil else { return }
+            guard let responce = responce as? HTTPURLResponse else { return }
+            guard responce.statusCode >= 200 && responce.statusCode < 300 else { fatalError("Fatal error") }
+            
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            do {
+                let decodedData = try decoder.decode(Trivia.self, from: data!)
+                DispatchQueue.main.async {
+                    self.index = 0
+                    self.score = 0
+                    self.progress = 0.0
+                    self.reachEnd = false
+                    self.trivia = decodedData.results
+                    self.length = self.trivia.count
+                    self.setQuestion()
+                    self.noInternet = false
+                }
+            } catch {
+                return
+            }
+            
+        }.resume()
+        
+    }
     
-//    func fetchCategories() async {
-//        guard let url = URL(string: "https://opentdb.com/api_category.php") else {
+    
+//    func fetchTrivia() async {
+//        DispatchQueue.main.async {
+//            self.index = 0
+//            self.score = 0
+//            self.progress = 0.0
+//            self.reachEnd = false
+//            self.length = self.trivia.count
+//            self.noInternet = true
+//        }
+//        guard let url = URL(string: ApiUrl) else {
 //            fatalError("Missing URL")
 //        }
 //
@@ -148,10 +182,17 @@ class TriviaManager: ObservableObject {
 //
 //            let decoder = JSONDecoder()
 //            decoder.keyDecodingStrategy = .convertFromSnakeCase
-//            let decodedData = try decoder.decode(TriviaCategories.self, from: data)
+//            let decodedData = try decoder.decode(Trivia.self, from: data)
 //
 //            DispatchQueue.main.async {
-//                self.categories = decodedData.triviaCategories
+//                self.index = 0
+//                self.score = 0
+//                self.progress = 0.0
+//                self.reachEnd = false
+//                self.trivia = decodedData.results
+//                self.length = self.trivia.count
+//                self.setQuestion()
+//                self.noInternet = false
 //            }
 //
 //        } catch {
@@ -159,40 +200,6 @@ class TriviaManager: ObservableObject {
 //        }
 //
 //    }
-    
-    
-    func fetchTrivia() async {
-        guard let url = URL(string: ApiUrl) else {
-            fatalError("Missing URL")
-        }
-        
-        let urlRequest = URLRequest(url: url)
-        
-        do {
-            
-            let (data, responce) = try await URLSession.shared.data(for: urlRequest)
-            
-            guard (responce as? HTTPURLResponse)?.statusCode == 200 else { fatalError("Fatal error") }
-            
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let decodedData = try decoder.decode(Trivia.self, from: data)
-            
-            DispatchQueue.main.async {
-                self.index = 0
-                self.score = 0
-                self.progress = 0.0
-                self.reachEnd = false
-                self.trivia = decodedData.results
-                self.length = self.trivia.count
-                self.setQuestion()
-            }
-            
-        } catch {
-            print(error.localizedDescription)
-        }
-        
-    }
     
     func goToNextQuestion() {
         if index + 1 < length {
@@ -205,7 +212,9 @@ class TriviaManager: ObservableObject {
     
     func setQuestion() {
         answerSelected = false
-        progress = CGFloat(Double(index + 1) / Double(length) * 350)
+        withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
+            progress = CGFloat(Double(index+1) / Double(length+1) * 350)
+        }
         
         if index < length {
             let currentTriviaQuestion  = trivia[index]
@@ -216,6 +225,7 @@ class TriviaManager: ObservableObject {
     
     func selectAnswer(answer: Answer) {
         withAnimation {
+//        withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
             answerSelected = true
         }
         if answer.isCorrect {
