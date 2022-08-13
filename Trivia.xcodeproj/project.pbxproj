@@ -112,8 +112,8 @@
 				4B2C43E6286C7A0F002858EE /* AnswerRow.swift */,
 				4BE82C2D286E3B0F0000B332 /* DiffButton.swift */,
 				4B2C43DA286C71B1002858EE /* PrimaryButton.swift */,
-				4B2C43DD286C753C002858EE /* Extensions.swift */,
 				4B2C43E1286C769B002858EE /* ProgressBar.swift */,
+				4B2C43DD286C753C002858EE /* Extensions.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
