@@ -94,7 +94,6 @@
 				4B2C43DC286C72E0002858EE /* Views */,
 				4B2C43E3286C79BC002858EE /* Models */,
 				4B2C43D9286C71A1002858EE /* Components */,
-				4B9DA94628A8368000A08601 /* Extensions.swift */,
 				4B9DA94828A837F700A08601 /* ExtensionsAndHelpers.swift */,
 				4B2C43CF286C70C0002858EE /* Assets.xcassets */,
 				4B2C43D1286C70C0002858EE /* Preview Content */,
@@ -117,6 +116,7 @@
 				4BE82C2D286E3B0F0000B332 /* DiffButton.swift */,
 				4B2C43DA286C71B1002858EE /* PrimaryButton.swift */,
 				4B2C43E1286C769B002858EE /* ProgressBar.swift */,
+				4B9DA94628A8368000A08601 /* Extensions.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
