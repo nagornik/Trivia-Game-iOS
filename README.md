@@ -7,7 +7,7 @@ This is a game where you choose questions category and difficulty, then pick the
 - Dark mode
 - Animations
 - Gestures
-- No internet protection
+- "No internet" protection
 - Haptic feedback
 
 
