@@ -113,8 +113,10 @@ struct QuestionView: View {
     }
     
     var content: some View {
+        
         VStack {
             
+            // MARK: - Close button
             HStack {
                 Spacer()
                 Button {
@@ -135,6 +137,8 @@ struct QuestionView: View {
                     noInternet = false
                 }
             }
+            
+            // MARK: - Title and questions number
             HStack {
                 Text("Trivia Game")
                     .lilacTitle()
@@ -149,6 +153,7 @@ struct QuestionView: View {
             ProgressBar(progress: triviaManager.progress)
                 .padding()
             
+            // MARK: - Question and answers
             Group {
                 
                 VStack (alignment: .leading, spacing: 20) {
@@ -167,6 +172,8 @@ struct QuestionView: View {
                 }
                 .padding(.horizontal)
                 
+                
+                // MARK: - "Next" button
                 PrimaryButton(text: triviaManager.index + 1 == triviaManager.length ? "Show results" : "Next", background: triviaManager.answerSelected ? Color("accent") : .gray.opacity(0.5))
                     .onTapGesture {
                         impact(type: .soft)

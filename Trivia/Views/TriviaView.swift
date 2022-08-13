@@ -20,6 +20,7 @@ struct TriviaView: View {
                 Text(triviaManager.checkResults())
                     .lilacTitle()
                 Text("Congratulations! You completed the game!🤓")
+                    .multilineTextAlignment(.center)
                 Text("Your score is:")
                     .font(.system(size: 18))
                 Text("\(score) out of \(triviaManager.length)")

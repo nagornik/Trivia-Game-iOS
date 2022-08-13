@@ -8,6 +8,29 @@
 import Foundation
 import SwiftUI
 
+enum AppViews {
+    case start
+    case game
+    case finish
+}
+
+enum Difficulties: String, CaseIterable {
+    case any = "Any"
+    case easy = "Easy"
+    case medium = "Medium"
+    case hard = "Hard"
+}
+
+func haptic(type: UINotificationFeedbackGenerator.FeedbackType) {
+    UINotificationFeedbackGenerator()
+        .notificationOccurred(type)
+}
+
+func impact(type: UIImpactFeedbackGenerator.FeedbackStyle) {
+    UIImpactFeedbackGenerator(style: type)
+        .impactOccurred()
+}
+
 class TriviaManager: ObservableObject {
     
     @Published var selectedCategory = Category(id: 9, name: "General Knowledge") {
@@ -23,22 +46,23 @@ class TriviaManager: ObservableObject {
     }
     
     @Published var isLoading = false
+    @Published var noQuestions = false
     @Published var currentView: AppViews = .start
     @Published var openCategories = false
     @Published var stopFetching = false
+    
+    
     private(set) var trivia: [Trivia.Result] = []
     @Published var categories: [Category] = []
     @Published private(set) var length = 0 {
         didSet {
-            
-                withAnimation {
-                    if length == 0 {
-                        noQuestions = true
-                    } else {
-                        noQuestions = false
-                    }
+            withAnimation {
+                if length == 0 {
+                    noQuestions = true
+                } else {
+                    noQuestions = false
                 }
-            
+            }
         }
     }
     @Published private(set) var index = 0
@@ -48,10 +72,6 @@ class TriviaManager: ObservableObject {
     @Published private(set) var answersCoices: [Answer] = []
     @Published private(set) var progress: CGFloat = 0.00
     @Published private(set) var score = 0
-    
-    @Published var finalText = ""
-    @Published var noQuestions = false
-    
     
     var ApiUrl: String {
         if selectedDifficulty == Difficulties.any {
@@ -76,26 +96,15 @@ class TriviaManager: ObservableObject {
         }
     }
     
-    func assignFinalText() {
-        self.finalText = checkResults()
-    }
-    
     static func getCategories() -> [Category] {
-
         let pathString = Bundle.main.path(forResource: "Categories", ofType: "json")
-
         guard pathString != nil else {
             return [Category]()
         }
-
         let url = URL(fileURLWithPath: pathString!)
-
         do {
-            
             let data = try Data(contentsOf: url)
-
             let decoder = JSONDecoder()
-
             do {
                 let quoteData = try decoder.decode([Category].self, from: data)
                 return quoteData
@@ -105,7 +114,6 @@ class TriviaManager: ObservableObject {
         } catch {
             print(error.localizedDescription)
         }
-
         return [Category]()
     }
     
@@ -149,7 +157,6 @@ class TriviaManager: ObservableObject {
             }
             
         }.resume()
-        
     }
  
     func goToNextQuestion() {
