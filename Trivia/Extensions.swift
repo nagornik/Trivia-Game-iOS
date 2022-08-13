@@ -1,5 +1,5 @@
 //
-//  ExtensionsAndHelpers.swift
+//  Extensions.swift
 //  Trivia
 //
 //  Created by Anton Nagornyi on 29.06.2022.
