@@ -1,4 +1,4 @@
-# Trivia-Game - Made in SwiftUI
+# Trivia-Game - made in SwiftUI
 
 This is a game where you choose questions category and difficulty, then pick the correct answer.
 
