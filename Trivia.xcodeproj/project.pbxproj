@@ -22,7 +22,7 @@
 		4B2C43ED286CAF89002858EE /* TriviaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2C43EC286CAF89002858EE /* TriviaManager.swift */; };
 		4B36EA02286CE2C6005630EB /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B36EA01286CE2C6005630EB /* Category.swift */; };
 		4B36EA04286CEA78005630EB /* Categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B36EA03286CEA78005630EB /* Categories.json */; };
-		4B9DA94928A837F700A08601 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DA94828A837F700A08601 /* Extensions.swift */; };
+		4B9DA94928A837F700A08601 /* ExtensionsAndHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DA94828A837F700A08601 /* ExtensionsAndHelpers.swift */; };
 		4BC9675D286F9C0800F52A93 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC9675C286F9C0800F52A93 /* MainView.swift */; };
 		4BE82C2E286E3B0F0000B332 /* DiffButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE82C2D286E3B0F0000B332 /* DiffButton.swift */; };
 /* End PBXBuildFile section */
@@ -45,7 +45,7 @@
 		4B2C43EC286CAF89002858EE /* TriviaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaManager.swift; sourceTree = "<group>"; };
 		4B36EA01286CE2C6005630EB /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		4B36EA03286CEA78005630EB /* Categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Categories.json; sourceTree = "<group>"; };
-		4B9DA94828A837F700A08601 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4B9DA94828A837F700A08601 /* ExtensionsAndHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsAndHelpers.swift; sourceTree = "<group>"; };
 		4BC9675C286F9C0800F52A93 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4BE82C2D286E3B0F0000B332 /* DiffButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffButton.swift; sourceTree = "<group>"; };
 		4BED46A828A71AA3006EC5B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -92,6 +92,7 @@
 				4B2C43DC286C72E0002858EE /* Views */,
 				4B2C43E3286C79BC002858EE /* Models */,
 				4B2C43D9286C71A1002858EE /* Components */,
+				4B9DA94828A837F700A08601 /* ExtensionsAndHelpers.swift */,
 				4B2C43CF286C70C0002858EE /* Assets.xcassets */,
 				4B2C43D1286C70C0002858EE /* Preview Content */,
 			);
@@ -113,7 +114,6 @@
 				4BE82C2D286E3B0F0000B332 /* DiffButton.swift */,
 				4B2C43DA286C71B1002858EE /* PrimaryButton.swift */,
 				4B2C43E1286C769B002858EE /* ProgressBar.swift */,
-				4B9DA94828A837F700A08601 /* Extensions.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -275,7 +275,7 @@
 				4BC9675D286F9C0800F52A93 /* MainView.swift in Sources */,
 				4B2C43E9286C7D68002858EE /* TriviaView.swift in Sources */,
 				4BE82C2E286E3B0F0000B332 /* DiffButton.swift in Sources */,
-				4B9DA94928A837F700A08601 /* Extensions.swift in Sources */,
+				4B9DA94928A837F700A08601 /* ExtensionsAndHelpers.swift in Sources */,
 				4B2C43EB286C7E30002858EE /* Trivia.swift in Sources */,
 				4B2C43DB286C71B1002858EE /* PrimaryButton.swift in Sources */,
 				4B2C43ED286CAF89002858EE /* TriviaManager.swift in Sources */,
