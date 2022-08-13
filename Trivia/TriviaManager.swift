@@ -8,29 +8,6 @@
 import Foundation
 import SwiftUI
 
-enum AppViews {
-    case start
-    case game
-    case finish
-}
-
-enum Difficulties: String, CaseIterable {
-    case any = "Any"
-    case easy = "Easy"
-    case medium = "Medium"
-    case hard = "Hard"
-}
-
-func haptic(type: UINotificationFeedbackGenerator.FeedbackType) {
-    UINotificationFeedbackGenerator()
-        .notificationOccurred(type)
-}
-
-func impact(type: UIImpactFeedbackGenerator.FeedbackStyle) {
-    UIImpactFeedbackGenerator(style: type)
-        .impactOccurred()
-}
-
 class TriviaManager: ObservableObject {
     
     @Published var selectedCategory = Category(id: 9, name: "General Knowledge") {
