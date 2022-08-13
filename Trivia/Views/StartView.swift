@@ -15,9 +15,8 @@ struct StartView: View {
     @State var selectCategory = false
     @State var selectDifficulty = false
     
-    var rows = [
-        GridItem(.adaptive(minimum: 30))
-    ]
+    @Namespace var namespace
+    @State var show = false
     
     var body: some View {
         ZStack {
@@ -95,23 +94,21 @@ struct StartView: View {
                             .font(.system(size: 20))
                             .lilacTitle()
                         
-//                        if !selectCategory {
-                            PrimaryButton(text: "\(triviaManager.selectedCategory.name.deletingPrefix("Entertainment: "))", padding: 10)
-                                .onTapGesture {
-                                    impact(type: .soft)
-                                    withAnimation {
-                                        selectCategory.toggle()
-                                    }
+                        PrimaryButton(text: "\(triviaManager.selectedCategory.name.deletingPrefix("Entertainment: "))", padding: 10)
+                            .onTapGesture {
+                                impact(type: .soft)
+                                withAnimation {
+                                    selectCategory.toggle()
                                 }
-//                        }
+                            }
                         
                     }
-//                    .frame(idealHeight: 1)
                     
                 }
                 
                 
                 // MARK: - Difficulty
+                
                 VStack {
                     
                     Text("Difficulty")
@@ -122,11 +119,11 @@ struct StartView: View {
                         
                             HStack {
                                 ForEach(Difficulties.allCases, id:\.self) { dif in
+                                    
                                     DiffButton(isItDifficulty: true, text: dif.rawValue)
                                         .padding(.vertical, 2)
                                         .onTapGesture {
-                                            let impactMed = UIImpactFeedbackGenerator(style: .soft)
-                                                impactMed.impactOccurred()
+                                            impact(type: .soft)
                                             triviaManager.selectedDifficulty = dif
                                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                                                 withAnimation {
@@ -139,31 +136,36 @@ struct StartView: View {
                             .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing)).combined(with: .opacity)).animation(.spring(), value: selectDifficulty)
 
                     } else {
+                        
                         PrimaryButton(text: triviaManager.selectedDifficulty.rawValue, padding: 10)
                             .onTapGesture {
-                                let impactMed = UIImpactFeedbackGenerator(style: .soft)
-                                    impactMed.impactOccurred()
+                                impact(type: .soft)
                                 withAnimation {
                                     selectDifficulty.toggle()
                                 }
                             }
+                        
                     }
                 }
                 
                 
                 // MARK: - Let's go button
-                
-                PrimaryButton(text: triviaManager.index > 0 ? "Continue" : "Start", fontStyle: .title)
-                    .padding(.top, 36)
-                    .onTapGesture {
-                        let impactMed = UIImpactFeedbackGenerator(style: .heavy)
-                            impactMed.impactOccurred()
-                        withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
-//                        withAnimation(.spring()) {
-                            triviaManager.currentView = .game
+       
+                VStack {
+                    PrimaryButton(text: triviaManager.index > 0 ? "Continue" : "Start", background: triviaManager.noQuestions ? .gray.opacity(0.5) : Color("accent"), fontStyle: .title)
+                        .padding(.top, 36)
+                        .onTapGesture {
+                            impact(type: .heavy)
+                            withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
+                                triviaManager.currentView = .game
+                            }
                         }
-                        
-                    }
+                        .disabled(triviaManager.length == 0)
+                    
+                    Text("There's not enough questions of this difficulty")
+                        .font(.footnote)
+                        .opacity(triviaManager.noQuestions ? 0.5 : 0)
+                }
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -173,9 +175,6 @@ struct StartView: View {
         .onAppear(perform: {
             if !triviaManager.stopFetching {
                 triviaManager.fetchTrivia()
-//                Task {
-//                    await triviaManager.fetchTrivia()
-//                }
             }
             triviaManager.stopFetching = false
             if triviaManager.openCategories {
@@ -186,18 +185,6 @@ struct StartView: View {
                 
             }
         })
-        .onChange(of: triviaManager.selectedDifficulty, perform: { newValue in
-            triviaManager.fetchTrivia()
-//            Task {
-//                await triviaManager.fetchTrivia()
-//            }
-        })
-        .onChange(of: triviaManager.selectedCategory) { newValue in
-            triviaManager.fetchTrivia()
-//            Task {
-//                await triviaManager.fetchTrivia()
-//            }
-        }
         
         
     }
@@ -237,22 +224,22 @@ struct StartView: View {
             }
         }
 
-        func item(for text: String) -> some View {
-            DiffButton(isItDifficulty: false, text: text)
-                .onTapGesture {
-                    let impactMed = UIImpactFeedbackGenerator(style: .soft)
-                        impactMed.impactOccurred()
-                    let tappedCategoryIndex = triviaManager.categories.firstIndex { cat in
-                        cat.name == text
-                    }
-                    triviaManager.selectedCategory = triviaManager.categories[tappedCategoryIndex!]
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                        withAnimation {
-                            selectCategory.toggle()
-                        }
+    private func item(for text: String) -> some View {
+        DiffButton(isItDifficulty: false, text: text)
+            .onTapGesture {
+                let impactMed = UIImpactFeedbackGenerator(style: .soft)
+                    impactMed.impactOccurred()
+                let tappedCategoryIndex = triviaManager.categories.firstIndex { cat in
+                    cat.name == text
+                }
+                triviaManager.selectedCategory = triviaManager.categories[tappedCategoryIndex!]
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    withAnimation {
+                        selectCategory.toggle()
                     }
                 }
-        }
+            }
+    }
     
     
 }

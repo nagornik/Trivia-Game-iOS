@@ -11,13 +11,13 @@ struct TriviaView: View {
     
     @EnvironmentObject var triviaManager: TriviaManager
     @State var changeDifficulty = false
-    @State var resultsText = ""
     @State var score = 0
+    @State var dragOffset = CGFloat.zero
     
     var body: some View {
         
             VStack (spacing: 20) {
-                Text(resultsText)
+                Text(triviaManager.checkResults())
                     .lilacTitle()
                 Text("Congratulations! You completed the game!🤓")
                 Text("Your score is:")
@@ -27,12 +27,8 @@ struct TriviaView: View {
                     .lilacTitle()
 
                 Button {
-                    let impactMed = UIImpactFeedbackGenerator(style: .soft)
-                    impactMed.impactOccurred()
+                    impact(type: .soft)
                     triviaManager.fetchTrivia()
-//                    Task.init {
-//                        await triviaManager.fetchTrivia()
-//                    }
                     triviaManager.openCategories = true
                     withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
                         triviaManager.currentView = .start
@@ -42,8 +38,7 @@ struct TriviaView: View {
                 }
                 
                 Button {
-                    let impactMed = UIImpactFeedbackGenerator(style: .soft)
-                    impactMed.impactOccurred()
+                    impact(type: .soft)
                     withAnimation {
                         changeDifficulty.toggle()
                     }
@@ -57,8 +52,7 @@ struct TriviaView: View {
                             DiffButton(isItDifficulty: true, text: dif.rawValue)
                                 .padding(.vertical, 2)
                                 .onTapGesture {
-                                    let impactMed = UIImpactFeedbackGenerator(style: .soft)
-                                    impactMed.impactOccurred()
+                                    impact(type: .soft)
                                     triviaManager.selectedDifficulty = dif
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                                         withAnimation {
@@ -73,8 +67,7 @@ struct TriviaView: View {
                     
                 
                 Button {
-                    let impactMed = UIImpactFeedbackGenerator(style: .soft)
-                    impactMed.impactOccurred()
+                    impact(type: .soft)
                     withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
                         triviaManager.currentView = .game
                     }
@@ -85,18 +78,32 @@ struct TriviaView: View {
                 
             }
             .onAppear(perform: {
-                resultsText = triviaManager.checkResults()
                 score = triviaManager.score
                 triviaManager.fetchTrivia()
-//                Task.init {
-//                    await triviaManager.fetchTrivia()
-//                }
             })
             .foregroundColor(Color("text"))
             .padding()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color("back"))
-        
+            .offset(y: dragOffset)
+            .gesture(DragGesture()
+                .onChanged({ value in
+                    dragOffset = value.translation.height
+                })
+                    .onEnded { value in
+                        if value.translation.height < -100 {
+                            withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
+                                triviaManager.currentView = .start
+                            }
+                            dragOffset = .zero
+                        } else {
+                            withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
+                                dragOffset = .zero
+                            }
+                        }
+                    }
+            )
+            
         
     }
 }

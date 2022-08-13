@@ -40,14 +40,37 @@ func impact(type: UIImpactFeedbackGenerator.FeedbackStyle) {
 
 class TriviaManager: ObservableObject {
     
+    @Published var selectedCategory = Category(id: 9, name: "General Knowledge") {
+        didSet {
+            fetchTrivia()
+        }
+    }
     
-    @Published var noInternet = false
+    @Published var selectedDifficulty = Difficulties.any {
+        didSet {
+            fetchTrivia()
+        }
+    }
+    
+    @Published var isLoading = false
     @Published var currentView: AppViews = .start
     @Published var openCategories = false
     @Published var stopFetching = false
     private(set) var trivia: [Trivia.Result] = []
     @Published var categories: [Category] = []
-    @Published private(set) var length = 0
+    @Published private(set) var length = 0 {
+        didSet {
+            
+                withAnimation {
+                    if length == 0 {
+                        noQuestions = true
+                    } else {
+                        noQuestions = false
+                    }
+                }
+            
+        }
+    }
     @Published private(set) var index = 0
     @Published private(set) var reachEnd = false
     @Published private(set) var answerSelected = false
@@ -55,10 +78,10 @@ class TriviaManager: ObservableObject {
     @Published private(set) var answersCoices: [Answer] = []
     @Published private(set) var progress: CGFloat = 0.00
     @Published private(set) var score = 0
-    @Published var selectedCategory = Category(id: 9, name: "General Knowledge")
-    @Published var selectedDifficulty = Difficulties.any
+    
     @Published var finalText = ""
-    @Published var currentContentSelected: Int?
+    @Published var noQuestions = false
+    
     
     var ApiUrl: String {
         if selectedDifficulty == Difficulties.any {
@@ -119,11 +142,9 @@ class TriviaManager: ObservableObject {
     func fetchTrivia() {
         DispatchQueue.main.async {
             self.index = 0
-            self.score = 0
-            self.progress = 0.0
-            self.reachEnd = false
-            self.length = self.trivia.count
-            self.noInternet = true
+            withAnimation {
+                self.isLoading = true
+            }
         }
         guard let url = URL(string: ApiUrl) else {
             print("Missing URL")
@@ -131,9 +152,14 @@ class TriviaManager: ObservableObject {
         }
         
         URLSession.shared.dataTask(with: URLRequest(url: url)) { data, responce, error in
-            guard error == nil && data != nil else { return }
+            guard error == nil && data != nil else {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.fetchTrivia()
+                }
+                return
+            }
             guard let responce = responce as? HTTPURLResponse else { return }
-            guard responce.statusCode >= 200 && responce.statusCode < 300 else { fatalError("Fatal error") }
+            guard responce.statusCode >= 200 && responce.statusCode < 300 else { return }
             
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -141,14 +167,12 @@ class TriviaManager: ObservableObject {
             do {
                 let decodedData = try decoder.decode(Trivia.self, from: data!)
                 DispatchQueue.main.async {
-                    self.index = 0
-                    self.score = 0
-                    self.progress = 0.0
-                    self.reachEnd = false
                     self.trivia = decodedData.results
                     self.length = self.trivia.count
                     self.setQuestion()
-                    self.noInternet = false
+                    withAnimation {
+                        self.isLoading = false
+                    }
                 }
             } catch {
                 return
@@ -157,50 +181,7 @@ class TriviaManager: ObservableObject {
         }.resume()
         
     }
-    
-    
-//    func fetchTrivia() async {
-//        DispatchQueue.main.async {
-//            self.index = 0
-//            self.score = 0
-//            self.progress = 0.0
-//            self.reachEnd = false
-//            self.length = self.trivia.count
-//            self.noInternet = true
-//        }
-//        guard let url = URL(string: ApiUrl) else {
-//            fatalError("Missing URL")
-//        }
-//
-//        let urlRequest = URLRequest(url: url)
-//
-//        do {
-//
-//            let (data, responce) = try await URLSession.shared.data(for: urlRequest)
-//
-//            guard (responce as? HTTPURLResponse)?.statusCode == 200 else { fatalError("Fatal error") }
-//
-//            let decoder = JSONDecoder()
-//            decoder.keyDecodingStrategy = .convertFromSnakeCase
-//            let decodedData = try decoder.decode(Trivia.self, from: data)
-//
-//            DispatchQueue.main.async {
-//                self.index = 0
-//                self.score = 0
-//                self.progress = 0.0
-//                self.reachEnd = false
-//                self.trivia = decodedData.results
-//                self.length = self.trivia.count
-//                self.setQuestion()
-//                self.noInternet = false
-//            }
-//
-//        } catch {
-//            print(error.localizedDescription)
-//        }
-//
-//    }
-    
+ 
     func goToNextQuestion() {
         if index + 1 < length {
             index += 1
@@ -225,7 +206,6 @@ class TriviaManager: ObservableObject {
     
     func selectAnswer(answer: Answer) {
         withAnimation {
-//        withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
             answerSelected = true
         }
         if answer.isCorrect {

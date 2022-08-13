@@ -13,21 +13,18 @@ struct PrimaryButton: View {
     var background: Color = Color("accent")
     var padding = 18.0
     var fontStyle = Font.body
+    
     var body: some View {
         
-     
-            Text(text)
+        Text(text)
             .foregroundColor(.white)
             .font(fontStyle)
-                .bold()
-                .padding(padding)
-                .padding(.horizontal)
-                .background(background)
-                .shadow(radius: 10)
-                .clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
-        
-        
-        
+            .bold()
+            .padding(padding)
+            .padding(.horizontal)
+            .background(background)
+            .shadow(radius: 10)
+            .clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
         
     }
 }
