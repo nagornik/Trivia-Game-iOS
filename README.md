@@ -1,8 +1,8 @@
-# Trivia-Gamle
-## Made in SwiftUI
+# Trivia-Game - Made in SwiftUI
+
 This is a game where you choose questions category and difficulty, then pick the correct answer.
 
-#### Features:
+## Features:
 - URLSession to get data from API
 - Dark mode
 - Animations
