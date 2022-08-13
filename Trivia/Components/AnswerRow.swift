@@ -27,20 +27,14 @@ struct AnswerRow: View {
             
             Spacer()
             
-            
-//            if isSelected {
             if isSelected || (answer.isCorrect && triviaManager.answerSelected) {
-                    
-                    Image(systemName: answer.isCorrect ? "checkmark.circle.fill" : "x.circle.fill")
-                        .transition(.slide)
-                        .foregroundColor(answer.isCorrect ? green : red)
-//                        .opacity(triviaManager.answerSelected ? 1 : 0)
-                        .transition(.move(edge: .leading)).animation(.spring(), value: isSelected)
-                    
-                }
-            
-            
-            
+                
+                Image(systemName: answer.isCorrect ? "checkmark.circle.fill" : "x.circle.fill")
+                    .transition(.slide)
+                    .foregroundColor(answer.isCorrect ? green : red)
+                    .transition(.move(edge: .leading)).animation(.spring(), value: isSelected)
+                
+            }
             
         }
         .padding()
@@ -52,7 +46,6 @@ struct AnswerRow: View {
         .cornerRadius(20)
         .shadow(color: isSelected ? (answer.isCorrect ? Color("accent") : red) : Color("text"), radius: 5, x: 0, y: 1)
         .shadow(color: isSelected ? (answer.isCorrect ? Color("accent") : .clear) : .clear, radius: 5, x: 0, y: 1)
-//        .shadow(color: isSelected ? (answer.isCorrect ? green : red) : Color("text"), radius: 2, x: 0, y: 2)
         .onTapGesture {
             if !triviaManager.answerSelected {
                 withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
@@ -60,12 +53,10 @@ struct AnswerRow: View {
                 }
                 triviaManager.selectAnswer(answer: answer)
                 if !answer.isCorrect {
-                    let impactMed = UIImpactFeedbackGenerator(style: .heavy)
-                    impactMed.impactOccurred()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {impactMed.impactOccurred()})
+                    impact(type: .heavy)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {impact(type: .heavy)})
                 } else {
-                    let impactMed = UIImpactFeedbackGenerator(style: .heavy)
-                    impactMed.impactOccurred()
+                    impact(type: .heavy)
                 }
             }
             

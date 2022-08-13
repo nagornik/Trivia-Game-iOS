@@ -24,7 +24,6 @@ struct ProgressBar: View {
                 .cornerRadius(10)
         }
         
-        
     }
 }
 
