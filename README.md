@@ -3,7 +3,8 @@
 This is a game where you choose questions category and difficulty, then pick the correct answer.
 
 ## Features:
-- URLSession to get data from API
+- Geting data from an API
+– Converting data from JSON
 - Dark mode
 - Animations
 - Gestures
