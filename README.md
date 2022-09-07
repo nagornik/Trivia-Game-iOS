@@ -4,7 +4,7 @@ This is a game where you choose questions category and difficulty, then pick the
 
 ## Features:
 - Geting data from an API
-– Converting data from JSON
+- Converting data from JSON
 - Dark mode
 - Animations
 - Gestures
